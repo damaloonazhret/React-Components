@@ -1,0 +1,26 @@
+.header {
+  display: grid;
+  grid-template-columns: 10fr 1fr;
+  height: 100px;
+  background-color: #6b3db4;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  &__input {
+    width: 100%;
+    height: 50px;
+    padding: 0;
+    border: none;
+  }
+  &__button{
+    width: 100%;
+    height: 50px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+    &:active{
+      transform: scale(0.95);
+    }
+  }
+}
