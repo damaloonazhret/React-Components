@@ -1,25 +1,7 @@
 import './App.css';
-import { HashRouter, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import NotFound from './pages/NonFoundPage';
 
 function App() {
-  return (
-    <div>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </div>
-  );
+  return <div>Hello World</div>;
 }
 
-function WrappedApp() {
-  return (
-    <HashRouter>
-      <App />
-    </HashRouter>
-  );
-}
-
-export default WrappedApp;
+export default App;
