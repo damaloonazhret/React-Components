@@ -1,8 +1,7 @@
-import fetchPokemonData from '../api/fetchPokemonData';
-
-const handleSearch = async (searchTerm: string) => {
-  // eslint-disable-next-line no-console
-  console.log(await fetchPokemonData(searchTerm));
-};
-
-export default handleSearch;
+// import getStarships from '../api/getStarships';
+//
+// const handleSearch = async (searchTerm: string): Promise<void> => {
+//   console.log(await getStarships(searchTerm));
+// };
+//
+// export default handleSearch;

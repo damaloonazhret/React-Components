@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { ReactElement, useState } from 'react';
 import style from './Search.module.scss';
 import SearchButton from './SearchButton';
 
-function Search() {
+function Search(): ReactElement {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event): void => {
     setSearchTerm(event.target.value);
   };
 
