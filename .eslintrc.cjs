@@ -55,6 +55,7 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'off',
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
+    'react/prefer-stateless-function': 'off',
   },
   settings: {
     react: {
