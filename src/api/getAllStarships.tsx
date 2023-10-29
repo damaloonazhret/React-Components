@@ -14,8 +14,8 @@ async function getAllStarships(): Promise<Starship[] | string | null> {
       const data: StarshipData = (await response.json()) as StarshipData;
       results.push(...data.results);
       nextUrl = data.next;
+      localStorage.setItem('data-page-all', JSON.stringify(results));
     }
-    localStorage.setItem('data-page-all', JSON.stringify(results));
   }
 
   return results;

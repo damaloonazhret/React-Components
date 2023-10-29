@@ -1,29 +1,40 @@
-import { ReactElement, useState } from 'react';
+import { Component, ReactElement } from 'react';
 import style from './Search.module.scss';
 import SearchButton from './SearchButton';
 
-function Search(): ReactElement {
-  const [searchTerm, setSearchTerm] = useState('');
+class Search extends Component<void, void> {
+  constructor(props) {
+    super(props);
 
-  const handleInputChange = (event): void => {
-    setSearchTerm(event.target.value);
+    this.state = {
+      searchTerm: '',
+    };
+  }
+
+  handleInputChange = (event): void => {
+    this.setState({ searchTerm: event.target.value });
   };
 
-  return (
-    <header className={style.header}>
-      <div>
-        <input
-          className={style.header__input}
-          value={searchTerm}
-          onChange={handleInputChange}
-          type="text"
-        />
-      </div>
-      <div>
-        <SearchButton searchTerm={searchTerm} />
-      </div>
-    </header>
-  );
+  render(): ReactElement {
+    const { onSearch } = this.props;
+    const { searchTerm } = this.state;
+
+    return (
+      <header className={style.header}>
+        <div>
+          <input
+            className={style.header__input}
+            value={searchTerm}
+            onChange={this.handleInputChange}
+            type="text"
+          />
+        </div>
+        <div>
+          <SearchButton searchTerm={searchTerm} onSearch={onSearch} />
+        </div>
+      </header>
+    );
+  }
 }
 
 export default Search;

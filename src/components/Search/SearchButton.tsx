@@ -1,13 +1,15 @@
 import { Component, ReactElement } from 'react';
 import style from './Search.module.scss';
-import handleSearch from '../../utils/handleSearch';
 
-class SearchButton extends Component<{ searchTerm: string }, void> {
+class SearchButton extends Component<
+  { searchTerm: string; onSearch: (searchTerm: string) => Promise<void> },
+  void
+> {
   render(): ReactElement {
-    const { searchTerm } = this.props;
+    const { searchTerm, onSearch } = this.props;
     return (
       <button
-        onClick={async (): Promise<void> => handleSearch(searchTerm)}
+        onClick={async (): Promise<void> => onSearch(searchTerm)}
         className={style.header__button}
         type="button"
       >
