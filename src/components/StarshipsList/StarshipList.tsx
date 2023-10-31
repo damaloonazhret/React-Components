@@ -1,8 +1,9 @@
 import { Component, ReactElement } from 'react';
 import Starship from './Starship/Starship';
 import style from './StarshipList.module.scss';
+import { StarshipData } from '../../interfaces/interfaces';
 
-class ItemList extends Component<void, void> {
+class ItemList extends Component<StarshipData, void> {
   render(): ReactElement {
     const { results } = this.props;
 

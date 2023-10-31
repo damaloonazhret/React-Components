@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export interface Starship {
   name: string;
   model: string;
@@ -24,4 +26,25 @@ export interface StarshipData {
   next: string;
   previous: null | string;
   results: Starship[];
+}
+
+export interface ErrorBoundaryProps {
+  children: ReactNode;
+}
+
+export interface ErrorBoundaryState {
+  error: Error | null;
+}
+
+export interface SearchProps {
+  onSearch: (searchTerm: string) => void;
+}
+
+export interface SearchState {
+  searchTerm: string;
+}
+
+export interface SearchButtonProps {
+  searchTerm: string;
+  onSearch: (searchTerm: string) => Promise<void>;
 }

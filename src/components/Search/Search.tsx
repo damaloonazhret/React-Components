@@ -1,9 +1,10 @@
-import { Component, ReactElement } from 'react';
+import { ChangeEvent, Component, ReactElement } from 'react';
 import style from './Search.module.scss';
 import SearchButton from './SearchButton';
+import { SearchProps, SearchState } from '../../interfaces/interfaces';
 
-class Search extends Component<void, void> {
-  constructor(props) {
+class Search extends Component<SearchProps, SearchState> {
+  constructor(props: SearchProps) {
     super(props);
 
     this.state = {
@@ -11,7 +12,7 @@ class Search extends Component<void, void> {
     };
   }
 
-  handleInputChange = (event): void => {
+  handleInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
     this.setState({ searchTerm: event.target.value });
   };
 

@@ -6,7 +6,7 @@ import Preloader from '../../common/Preloader/Preloader';
 import initStarships from '../../utils/initStarships/initStarships';
 import filterResults from '../../utils/filterResults/filterResults';
 
-class MainPage extends Component<void, void> {
+class MainPage extends Component<ReactElement, void> {
   constructor(props) {
     super(props);
 
@@ -53,6 +53,15 @@ class MainPage extends Component<void, void> {
 
     return (
       <section className={style.main}>
+        <button
+          type="button"
+          onClick={(): void => {
+            this.setState({ filteredResults: [1], results: [2] });
+            throw new Error('Data is broken');
+          }}
+        >
+          Simulate Error
+        </button>
         <Search onSearch={this.handleSearch} />
         {isLoading ? <Preloader /> : <ItemList results={displayedResults} />}
         <div className={style.stars} />

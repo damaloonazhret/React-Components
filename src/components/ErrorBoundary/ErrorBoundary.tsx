@@ -1,15 +1,22 @@
-import { Component, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import style from './ErrorBoundary.module.scss';
+import {
+  ErrorBoundaryProps,
+  ErrorBoundaryState,
+} from '../../interfaces/interfaces';
 
-class ErrorBoundary extends Component<void, void> {
-  constructor(props) {
+class ErrorBoundary extends React.Component<
+  ErrorBoundaryProps,
+  ErrorBoundaryState
+> {
+  constructor(props: ErrorBoundaryProps) {
     super(props);
     this.state = {
       error: null,
     };
   }
 
-  static getDerivedStateFromError(error): { error: never } {
+  static getDerivedStateFromError(error: Error): ErrorBoundaryState {
     return { error };
   }
 
@@ -25,6 +32,7 @@ class ErrorBoundary extends Component<void, void> {
         </div>
       );
     }
+
     return children;
   }
 }
