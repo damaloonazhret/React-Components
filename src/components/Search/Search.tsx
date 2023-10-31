@@ -30,7 +30,7 @@ class Search extends Component<void, void> {
           />
         </div>
         <div>
-          <SearchButton searchTerm={searchTerm} onSearch={onSearch} />
+          <SearchButton searchTerm={searchTerm.trim()} onSearch={onSearch} />
         </div>
       </header>
     );

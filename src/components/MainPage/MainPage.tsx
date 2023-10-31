@@ -2,9 +2,9 @@ import { Component, ReactElement } from 'react';
 import Search from '../Search/Search';
 import ItemList from '../StarshipsList/StarshipList';
 import style from './MainPage.module.scss';
-import getStarshipsList from '../../api/getStarshipsList';
-import getAllStarships from '../../api/getAllStarships';
 import Preloader from '../../common/Preloader/Preloader';
+import initStarships from '../../utils/initStarships/initStarships';
+import filterResults from '../../utils/filterResults/filterResults';
 
 class MainPage extends Component<void, void> {
   constructor(props) {
@@ -18,23 +18,33 @@ class MainPage extends Component<void, void> {
   }
 
   async componentDidMount(): Promise<void> {
-    const dataPage = localStorage.getItem('data-page');
-    const results = dataPage ? JSON.parse(dataPage) : await getStarshipsList();
-    // const { results } = data;
-    this.setState({ results, isLoading: false });
-    await getAllStarships();
+    await this.setStarshipsState();
   }
 
-  handleSearch = (searchTerm): void => {
-    const allStarships = localStorage.getItem('data-page-all');
-    let { results } = this.state;
-    if (allStarships) {
-      results = JSON.parse(allStarships);
+  setStarshipsState = async (): Promise<void> => {
+    const results = await initStarships();
+    this.setState({ results, isLoading: false });
+  };
+
+  handleSearch = async (searchTerm): Promise<void> => {
+    const { results } = this.state;
+
+    if (searchTerm === '') {
+      this.clearFilteredResults();
+    } else {
+      const filteredResults = filterResults(results, searchTerm);
+      this.updateFilteredResultsInStateAndStorage(filteredResults);
     }
-    const filteredResults = results.filter((result) =>
-      result.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+  };
+
+  clearFilteredResults = (): void => {
+    this.setState({ filteredResults: [] });
+    localStorage.removeItem('data-page-filter');
+  };
+
+  updateFilteredResultsInStateAndStorage = (filteredResults): void => {
     this.setState({ filteredResults });
+    localStorage.setItem('data-page-filter', JSON.stringify(filteredResults));
   };
 
   render(): ReactElement {

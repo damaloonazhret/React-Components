@@ -1,7 +1,7 @@
 .starships {
   display: grid;
   grid-template-columns: repeat(3,20vw);
-  grid-template-rows: repeat(3, 20vw);
+  grid-template-rows: repeat(3, auto);
   justify-content: center;
   align-content: center;
   gap: 10px;
