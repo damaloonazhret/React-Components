@@ -1,7 +1,7 @@
 import getStarshipsList from '../../api/getStarshipsList';
 import { Starship } from '../../interfaces/interfaces';
 
-const initStarships = async (): Promise<Array<object>[Starship]> => {
+const initStarships = async (): Promise<Starship[]> => {
   const dataPage = localStorage.getItem('data-page');
   const dataPageFilter = localStorage.getItem('data-page-filter');
 

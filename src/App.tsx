@@ -3,7 +3,7 @@ import { Component, ReactElement } from 'react';
 import MainPage from './components/MainPage/MainPage';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 
-class App extends Component<ReactElement, ReactElement> {
+class App extends Component<ReactElement, void> {
   render(): ReactElement {
     return (
       <ErrorBoundary>

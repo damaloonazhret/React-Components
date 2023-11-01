@@ -1,6 +1,6 @@
 import { ChangeEvent, Component, ReactElement } from 'react';
 import style from './Search.module.scss';
-import SearchButton from './SearchButton';
+import SearchButtonItem from './SearchButton';
 import { SearchProps, SearchState } from '../../interfaces/interfaces';
 
 class Search extends Component<SearchProps, SearchState> {
@@ -31,7 +31,10 @@ class Search extends Component<SearchProps, SearchState> {
           />
         </div>
         <div>
-          <SearchButton searchTerm={searchTerm.trim()} onSearch={onSearch} />
+          <SearchButtonItem
+            searchTerm={searchTerm.trim()}
+            onSearch={onSearch}
+          />
         </div>
       </header>
     );

@@ -33,7 +33,7 @@ class ErrorBoundary extends React.Component<
       );
     }
 
-    return children;
+    return React.createElement(React.Fragment, null, children);
   }
 }
 

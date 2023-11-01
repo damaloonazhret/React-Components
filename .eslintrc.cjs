@@ -65,4 +65,5 @@ module.exports = {
       version: 'detect',
     },
   },
+  ignorePatterns: ['**/.eslintignore'],
 };
