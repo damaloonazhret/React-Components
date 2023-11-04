@@ -2,7 +2,7 @@ import { Component, MouseEventHandler, ReactElement } from 'react';
 import style from './Search.module.scss';
 import { SearchButtonProps } from '../../interfaces/interfaces';
 
-class SearchButton extends Component<SearchButtonProps, void> {
+class SearchButton extends Component<SearchButtonProps, unknown> {
   handleClick: MouseEventHandler<HTMLButtonElement> = async (event) => {
     event.preventDefault();
     const { searchTerm, onSearch } = this.props;

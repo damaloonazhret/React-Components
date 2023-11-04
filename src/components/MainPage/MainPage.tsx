@@ -5,24 +5,14 @@ import style from './MainPage.module.scss';
 import Preloader from '../../common/Preloader/Preloader';
 import initStarships from '../../utils/initStarships/initStarships';
 import filterResults from '../../utils/filterResults/filterResults';
-import { Starship } from '../../interfaces/interfaces';
+import { MainPageState, Starship } from '../../interfaces/interfaces';
 
-interface MainPageState {
-  results: Starship[];
-  filteredResults: Starship[];
-  isLoading: boolean;
-}
-
-class MainPage extends Component<ReactElement, MainPageState> {
-  constructor(props: ReactElement) {
-    super(props);
-
-    this.state = {
-      results: [],
-      filteredResults: [],
-      isLoading: true,
-    };
-  }
+class MainPage extends Component<unknown, MainPageState> {
+  state = {
+    results: [],
+    filteredResults: [],
+    isLoading: true,
+  };
 
   async componentDidMount(): Promise<void> {
     await this.setStarshipsState();

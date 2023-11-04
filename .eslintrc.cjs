@@ -50,6 +50,7 @@ module.exports = {
     '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     'react/jsx-uses-react': 'off',
+    'react/state-in-constructor': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/prefer-stateless-function': 'off',
     "no-await-in-loop": "off",

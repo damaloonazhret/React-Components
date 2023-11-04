@@ -46,5 +46,11 @@ export interface SearchState {
 
 export interface SearchButtonProps {
   searchTerm: string;
-  onSearch: (searchTerm: string) => Promise<void>;
+  onSearch: SearchProps['onSearch'];
+}
+
+export interface MainPageState {
+  results: Starship[];
+  filteredResults: Starship[];
+  isLoading: boolean;
 }
