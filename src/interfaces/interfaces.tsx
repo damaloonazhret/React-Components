@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 
 export interface Starship {
   name: string;
@@ -54,3 +54,19 @@ export interface MainPageState {
   filteredResults: Starship[];
   isLoading: boolean;
 }
+
+export interface StarshipListProps {
+  results: Starship[];
+}
+
+export interface StarshipItemProps {
+  name: string;
+  manufacturer: string;
+  cost: string;
+  length: string;
+  passengers: string;
+}
+
+export type SetMainPageState = React.Dispatch<
+  React.SetStateAction<MainPageState>
+>;

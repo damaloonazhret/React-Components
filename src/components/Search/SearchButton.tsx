@@ -1,25 +1,23 @@
-import { Component, MouseEventHandler, ReactElement } from 'react';
+import { MouseEventHandler, ReactElement } from 'react';
 import style from './Search.module.scss';
 import { SearchButtonProps } from '../../interfaces/interfaces';
 
-class SearchButton extends Component<SearchButtonProps, unknown> {
-  handleClick: MouseEventHandler<HTMLButtonElement> = async (event) => {
+function SearchButton(props: SearchButtonProps): ReactElement {
+  const handleClick: MouseEventHandler<HTMLButtonElement> = async (event) => {
     event.preventDefault();
-    const { searchTerm, onSearch } = this.props;
+    const { searchTerm, onSearch } = props;
     await onSearch(searchTerm);
   };
 
-  render(): ReactElement {
-    return (
-      <button
-        onClick={this.handleClick}
-        className={style.header__button}
-        type="button"
-      >
-        Search
-      </button>
-    );
-  }
+  return (
+    <button
+      onClick={handleClick}
+      className={style.header__button}
+      type="button"
+    >
+      Search
+    </button>
+  );
 }
 
 export default SearchButton;
