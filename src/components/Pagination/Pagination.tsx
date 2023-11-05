@@ -6,6 +6,8 @@ function Pagination({
   currentPage,
   onPageChange,
   itemsOnPage,
+  setState,
+  state,
 }: PaginationProps): ReactElement {
   const totalPages = Math.ceil(itemsCount / itemsOnPage);
   const pageNumbers = Array.from(
@@ -19,7 +21,7 @@ function Pagination({
         <button
           type="button"
           key={pageNumber}
-          onClick={(): void => onPageChange(pageNumber)}
+          onClick={(): void => onPageChange(pageNumber, setState, state)}
           disabled={pageNumber === currentPage}
           style={{ fontWeight: pageNumber === currentPage ? 'bold' : 'normal' }}
         >

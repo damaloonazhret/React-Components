@@ -1,15 +1,23 @@
-import { ChangeEvent, ReactElement } from 'react';
+import React, { ChangeEvent, ReactElement } from 'react';
+import { MainPageState, SetMainPageState } from '../../interfaces/interfaces';
 
 type SelectItemsOnPageProps = {
-  setItemsOnPage: (items: number) => Promise<void>;
+  setItemsOnPage: (
+    items: number,
+    setState: (
+      value: ((prevState: MainPageState) => MainPageState) | MainPageState
+    ) => void
+  ) => Promise<void>;
+  setState: SetMainPageState;
 };
 
 function SelectItemsOnPage({
   setItemsOnPage,
+  setState,
 }: SelectItemsOnPageProps): ReactElement {
   const handleChange = (event: ChangeEvent<HTMLSelectElement>): void => {
     const selectedValue = Number(event.target.value);
-    setItemsOnPage(selectedValue);
+    setItemsOnPage(selectedValue, setState);
   };
 
   return (

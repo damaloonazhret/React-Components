@@ -37,16 +37,14 @@ export interface ErrorBoundaryState {
 }
 
 export interface SearchProps {
-  onSearch: (searchTerm: string) => void;
+  onSearch: (props: SearchButtonProps) => void;
+  setState: SetMainPageState;
+  state: MainPageState;
+  results: Starship[];
+  filteredResults: Starship[];
 }
-
-export interface SearchState {
+export interface SearchButtonProps extends SearchProps {
   searchTerm: string;
-}
-
-export interface SearchButtonProps {
-  searchTerm: string;
-  onSearch: SearchProps['onSearch'];
 }
 
 export interface MainPageState {
@@ -77,6 +75,14 @@ export type SetMainPageState = React.Dispatch<
 export interface PaginationProps {
   itemsCount: number;
   currentPage: number;
-  onPageChange: (pageNumber: number) => void;
+  onPageChange: (
+    pageNumber: number,
+    setState: (
+      value: ((prevState: MainPageState) => MainPageState) | MainPageState
+    ) => void,
+    state: MainPageState
+  ) => void;
   itemsOnPage: number;
+  setState: SetMainPageState;
+  state: MainPageState;
 }

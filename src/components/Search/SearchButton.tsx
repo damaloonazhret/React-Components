@@ -5,8 +5,8 @@ import { SearchButtonProps } from '../../interfaces/interfaces';
 function SearchButton(props: SearchButtonProps): ReactElement {
   const handleClick: MouseEventHandler<HTMLButtonElement> = async (event) => {
     event.preventDefault();
-    const { searchTerm, onSearch } = props;
-    await onSearch(searchTerm);
+    const { onSearch } = props;
+    onSearch(props);
   };
 
   return (

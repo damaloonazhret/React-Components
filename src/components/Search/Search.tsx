@@ -1,9 +1,10 @@
 import { ChangeEvent, ReactElement, useState } from 'react';
 import style from './Search.module.scss';
-import SearchButtonItem from './SearchButton';
+import SearchButton from './SearchButton';
 import { SearchProps } from '../../interfaces/interfaces';
 
-function Search({ onSearch }: SearchProps): ReactElement {
+function Search(props: SearchProps): ReactElement {
+  const { onSearch, setState, state, results, filteredResults } = props;
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -21,7 +22,14 @@ function Search({ onSearch }: SearchProps): ReactElement {
         />
       </div>
       <div>
-        <SearchButtonItem searchTerm={searchTerm.trim()} onSearch={onSearch} />
+        <SearchButton
+          searchTerm={searchTerm.trim()}
+          onSearch={onSearch}
+          setState={setState}
+          state={state}
+          results={results}
+          filteredResults={filteredResults}
+        />
       </div>
     </header>
   );
