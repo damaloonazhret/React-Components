@@ -20,6 +20,7 @@ function Pagination({
           type="button"
           key={pageNumber}
           onClick={(): void => onPageChange(pageNumber)}
+          disabled={pageNumber === currentPage}
           style={{ fontWeight: pageNumber === currentPage ? 'bold' : 'normal' }}
         >
           {pageNumber}

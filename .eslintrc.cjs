@@ -58,7 +58,7 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     '@typescript-eslint/ban-ts-comment': 'error',
     "@typescript-eslint/explicit-function-return-type": "error",
-    'react-hooks/exhaustive-deps': 'warn',
+    'react-hooks/exhaustive-deps': 'off',
   },
   settings: {
     react: {

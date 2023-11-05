@@ -1,7 +1,11 @@
 import getStarshipsList from '../../api/getStarshipsList';
 import { StarshipData } from '../../interfaces/interfaces';
 
-const initStarships = async (limit = 10): Promise<StarshipData> => {
+const initStarships = async (
+  pageNumber: number,
+  currentPage: number,
+  limit = 5
+): Promise<StarshipData> => {
   const dataPage = localStorage.getItem('data-page');
   const dataPageFilter = localStorage.getItem('data-page-filter');
 
