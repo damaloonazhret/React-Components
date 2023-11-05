@@ -1,5 +1,5 @@
 import { ReactElement, useEffect, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import Search from '../Search/Search';
 import StarshipList from '../StarshipsList/StarshipList';
 import style from './MainPage.module.scss';
@@ -44,6 +44,7 @@ function MainPage(): ReactElement {
   }, []);
 
   const displayedResults = filteredResults.length ? filteredResults : results;
+  const navigate = useNavigate();
 
   return (
     <section className={style.main}>
@@ -61,6 +62,7 @@ function MainPage(): ReactElement {
         itemsOnPage={state.itemsOnPage}
         setState={setState}
         state={state}
+        navigate={navigate}
       />
       <SelectItemsOnPage setItemsOnPage={setItemsOnPage} setState={setState} />
       {isLoading ? (

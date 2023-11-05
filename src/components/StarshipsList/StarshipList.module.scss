@@ -13,5 +13,13 @@
     justify-items: center;
     text-align: center;
     padding: 10px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    &:hover {
+      background-color: rgba(147, 110, 206, 0.14);
+    }
+    &:active{
+      transform: scale(0.95);
+    }
   }
 }

@@ -13,6 +13,7 @@
     background-color: rgba(107, 61, 180, 0.14);
     color: whitesmoke;
     padding: 0 0 0 20px;
+    border-radius: 10px;
   }
   &__button{
     width: 100%;
@@ -23,8 +24,12 @@
     transition: 0.2s;
     color: #ffdc95;
     background-color: #21023d;
+    border-radius: 10px;
     &:active{
       transform: scale(0.95);
+    }
+    &:hover{
+      background-color: #170528;
     }
   }
 }

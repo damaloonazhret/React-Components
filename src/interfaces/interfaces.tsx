@@ -80,9 +80,11 @@ export interface PaginationProps {
     setState: (
       value: ((prevState: MainPageState) => MainPageState) | MainPageState
     ) => void,
-    state: MainPageState
+    state: MainPageState,
+    navigate: (to: string) => void
   ) => void;
   itemsOnPage: number;
   setState: SetMainPageState;
   state: MainPageState;
+  navigate: (to: string) => void;
 }

@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 import { PaginationProps } from '../../interfaces/interfaces';
+import style from './Pagination.module.scss';
 
 function Pagination({
   itemsCount,
@@ -8,6 +9,7 @@ function Pagination({
   itemsOnPage,
   setState,
   state,
+  navigate,
 }: PaginationProps): ReactElement {
   const totalPages = Math.ceil(itemsCount / itemsOnPage);
   const pageNumbers = Array.from(
@@ -16,12 +18,15 @@ function Pagination({
   );
 
   return (
-    <div>
+    <div className={style.pagination}>
       {pageNumbers.map((pageNumber) => (
         <button
+          className={style.pagination__button}
           type="button"
           key={pageNumber}
-          onClick={(): void => onPageChange(pageNumber, setState, state)}
+          onClick={(): void =>
+            onPageChange(pageNumber, setState, state, navigate)
+          }
           disabled={pageNumber === currentPage}
           style={{ fontWeight: pageNumber === currentPage ? 'bold' : 'normal' }}
         >

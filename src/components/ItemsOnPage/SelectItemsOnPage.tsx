@@ -1,5 +1,6 @@
 import React, { ChangeEvent, ReactElement } from 'react';
 import { MainPageState, SetMainPageState } from '../../interfaces/interfaces';
+import style from './SelectItemsOnPage.module.scss';
 
 type SelectItemsOnPageProps = {
   setItemsOnPage: (
@@ -21,7 +22,12 @@ function SelectItemsOnPage({
   };
 
   return (
-    <select name="itemsPerPage" id="itemsPerPage" onChange={handleChange}>
+    <select
+      className={style.itemsPerPage}
+      name="itemsPerPage"
+      id="itemsPerPage"
+      onChange={handleChange}
+    >
       <option value="5">5</option>
       <option value="10">10</option>
     </select>

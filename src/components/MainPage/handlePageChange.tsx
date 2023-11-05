@@ -4,7 +4,8 @@ import { MainPageState, SetMainPageState } from '../../interfaces/interfaces';
 const handlePageChange = async (
   pageNumber: number,
   setState: SetMainPageState,
-  state: MainPageState
+  state: MainPageState,
+  navigate: (to: string) => void
 ): Promise<void> => {
   setState((prevState) => ({
     ...prevState,
@@ -17,6 +18,7 @@ const handlePageChange = async (
     results: page,
     currentPage: pageNumber,
   }));
+  navigate(`/page/${pageNumber}`);
 };
 
 export default handlePageChange;
