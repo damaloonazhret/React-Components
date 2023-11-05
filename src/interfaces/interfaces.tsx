@@ -22,7 +22,7 @@ export interface Starship {
 }
 
 export interface StarshipData {
-  count?: number;
+  count: number;
   next?: string;
   previous?: null | string;
   results: Starship[];
@@ -53,6 +53,9 @@ export interface MainPageState {
   results: Starship[];
   filteredResults: Starship[];
   isLoading: boolean;
+  itemsCount: number;
+  currentPage: number;
+  itemsOnPage: number;
 }
 
 export interface StarshipListProps {
@@ -70,3 +73,10 @@ export interface StarshipItemProps {
 export type SetMainPageState = React.Dispatch<
   React.SetStateAction<MainPageState>
 >;
+
+export interface PaginationProps {
+  itemsCount: number;
+  currentPage: number;
+  onPageChange: (pageNumber: number) => void;
+  itemsOnPage: number;
+}

@@ -1,4 +1,5 @@
 import { ReactElement, useEffect, useState } from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import Search from '../Search/Search';
 import StarshipList from '../StarshipsList/StarshipList';
 import style from './MainPage.module.scss';
@@ -8,12 +9,16 @@ import filterResults from '../../utils/filterResults/filterResults';
 import { MainPageState } from '../../interfaces/interfaces';
 import clearFilteredResults from './clearFilteredResults';
 import updateFilteredResultsInStateAndStorage from './updateFilteredResultsInStateAndStorage';
+import Pagination from '../Pagination/Pagination';
 
 function MainPage(): ReactElement {
   const [state, setState] = useState<MainPageState>({
     results: [],
     filteredResults: [],
     isLoading: true,
+    itemsCount: 0,
+    currentPage: 1,
+    itemsOnPage: 10,
   });
 
   const { results, isLoading } = state;
@@ -21,10 +26,11 @@ function MainPage(): ReactElement {
 
   useEffect(() => {
     async function fetchData(): Promise<void> {
-      const fetchedResults = await initStarships();
+      const fetchedData = await initStarships();
       setState((prevState) => ({
         ...prevState,
-        results: fetchedResults,
+        results: fetchedData.results,
+        itemsCount: fetchedData.count || 0,
         isLoading: false,
       }));
     }
@@ -43,10 +49,35 @@ function MainPage(): ReactElement {
 
   const displayedResults = filteredResults.length ? filteredResults : results;
 
+  const navigate = useNavigate();
+
+  const handlePageChange = (pageNumber: number): void => {
+    navigate(`/page/${pageNumber}`);
+  };
+
   return (
     <section className={style.main}>
       <Search onSearch={handleSearch} />
-      {isLoading ? <Preloader /> : <StarshipList results={displayedResults} />}
+      <Pagination
+        itemsCount={state.itemsCount}
+        currentPage={1}
+        onPageChange={handlePageChange}
+        itemsOnPage={state.itemsOnPage}
+      />
+      {isLoading ? (
+        <Preloader />
+      ) : (
+        <Routes>
+          <Route
+            path="/"
+            element={<StarshipList results={displayedResults} />}
+          />
+          <Route
+            path="/page/:pageNumber"
+            element={<StarshipList results={displayedResults} />}
+          />
+        </Routes>
+      )}
       <div className={style.stars} />
       <div className={style.twinkling} />
     </section>

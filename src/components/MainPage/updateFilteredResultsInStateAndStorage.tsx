@@ -2,6 +2,7 @@ import {
   MainPageState,
   SetMainPageState,
   Starship,
+  StarshipData,
 } from '../../interfaces/interfaces';
 
 const updateFilteredResultsInStateAndStorage = (
@@ -13,10 +14,12 @@ const updateFilteredResultsInStateAndStorage = (
     ...state,
     filteredResults: updateFilteredResults,
   });
-  localStorage.setItem(
-    'data-page-filter',
-    JSON.stringify(updateFilteredResults)
-  );
+  const dataPageResults = localStorage.getItem('data-page');
+  if (dataPageResults) {
+    const dataPage: StarshipData = JSON.parse(dataPageResults);
+    dataPage.results = updateFilteredResults;
+    localStorage.setItem('data-page-filter', JSON.stringify(dataPage));
+  }
 };
 
 export default updateFilteredResultsInStateAndStorage;

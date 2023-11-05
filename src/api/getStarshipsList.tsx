@@ -1,6 +1,6 @@
-import { Starship, StarshipData } from '../interfaces/interfaces';
+import { StarshipData } from '../interfaces/interfaces';
 
-async function getStarshipsList(): Promise<Starship[] | string | null> {
+async function getStarshipsList(): Promise<StarshipData | string | null> {
   const apiUrl: string = 'https://swapi.dev/api/starships/';
   const response: Response = await fetch(apiUrl);
 
@@ -10,8 +10,7 @@ async function getStarshipsList(): Promise<Starship[] | string | null> {
 
   if (response.ok) {
     const data: StarshipData = (await response.json()) as StarshipData;
-    localStorage.setItem('data-page', JSON.stringify(data.results));
-    return data.results;
+    return data;
   }
 
   return null;
