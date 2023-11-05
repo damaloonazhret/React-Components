@@ -11,15 +11,20 @@ import SelectItemsOnPage from '../ItemsOnPage/SelectItemsOnPage';
 import handlePageChange from './handlePageChange';
 import setItemsOnPage from './setItemsOnPage';
 import handleSearch from './handleSearch';
+import {
+  INITIAL_CURRENT_PAGE,
+  INITIAL_ITEMS_COUNT,
+  INITIAL_ITEMS_ON_PAGE,
+} from '../../constants/constants';
 
 function MainPage(): ReactElement {
   const [state, setState] = useState<MainPageState>({
     results: [],
     filteredResults: [],
     isLoading: true,
-    itemsCount: 0,
-    currentPage: 1,
-    itemsOnPage: 5,
+    itemsCount: INITIAL_ITEMS_COUNT,
+    currentPage: INITIAL_CURRENT_PAGE,
+    itemsOnPage: INITIAL_ITEMS_ON_PAGE,
   });
 
   const { results, isLoading } = state;
@@ -35,7 +40,7 @@ function MainPage(): ReactElement {
       setState((prevState) => ({
         ...prevState,
         results: fetchedData.results,
-        itemsCount: fetchedData.count || 0,
+        itemsCount: fetchedData.count || INITIAL_ITEMS_COUNT,
         isLoading: false,
       }));
     }
