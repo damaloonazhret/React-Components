@@ -26,6 +26,7 @@ class Search extends Component<SearchProps, SearchState> {
           <input
             className={style.header__input}
             value={searchTerm}
+            placeholder="Search..."
             onChange={this.handleInputChange}
             type="text"
           />

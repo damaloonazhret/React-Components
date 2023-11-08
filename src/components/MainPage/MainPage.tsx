@@ -7,7 +7,7 @@ import initStarships from '../../utils/initStarships/initStarships';
 import filterResults from '../../utils/filterResults/filterResults';
 import { MainPageState, Starship } from '../../interfaces/interfaces';
 
-class MainPage extends Component<unknown, MainPageState> {
+class MainPage extends Component<Record<string, never>, MainPageState> {
   state = {
     results: [],
     filteredResults: [],
@@ -20,11 +20,7 @@ class MainPage extends Component<unknown, MainPageState> {
 
   setStarshipsState = async (): Promise<void> => {
     const results = await initStarships();
-    this.setState((prevState) => ({
-      ...prevState,
-      results,
-      isLoading: false,
-    }));
+    this.setState({ results, isLoading: false });
   };
 
   handleSearch = (searchTerm: string): void => {
@@ -35,24 +31,19 @@ class MainPage extends Component<unknown, MainPageState> {
     } else {
       const filteredResults = filterResults(results, searchTerm);
       this.updateFilteredResultsInStateAndStorage(filteredResults);
+      this.setState({ filteredResults });
     }
   };
 
   clearFilteredResults = (): void => {
-    this.setState((prevState) => ({
-      ...prevState,
-      filteredResults: [],
-    }));
+    this.setState({ filteredResults: [] });
     localStorage.removeItem('data-page-filter');
   };
 
   updateFilteredResultsInStateAndStorage = (
     filteredResults: Array<Starship>
   ): void => {
-    this.setState((prevState) => ({
-      ...prevState,
-      filteredResults,
-    }));
+    this.setState({ filteredResults });
     localStorage.setItem('data-page-filter', JSON.stringify(filteredResults));
   };
 
@@ -62,19 +53,6 @@ class MainPage extends Component<unknown, MainPageState> {
 
     return (
       <section className={style.main}>
-        {/* <button */}
-        {/*  type="button" */}
-        {/*  onClick={(): void => { */}
-        {/*    this.setState((prevState) => ({ */}
-        {/*      ...prevState, */}
-        {/*      filteredResults: [1], */}
-        {/*      results: [2], */}
-        {/*    })); */}
-        {/*    throw new Error('Data is broken'); */}
-        {/*  }} */}
-        {/* > */}
-        {/*  Simulate Error */}
-        {/* </button> */}
         <Search onSearch={this.handleSearch} />
         {isLoading ? (
           <Preloader />

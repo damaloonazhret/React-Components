@@ -10,7 +10,6 @@ async function getStarshipsList(): Promise<Starship[] | string | null> {
 
   if (response.ok) {
     const data: StarshipData = (await response.json()) as StarshipData;
-    localStorage.setItem('data-page', JSON.stringify(data.results));
     return data.results;
   }
 

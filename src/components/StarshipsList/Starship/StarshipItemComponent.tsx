@@ -1,13 +1,8 @@
 import React, { Component, ReactElement } from 'react';
 import style from '../StarshipList.module.scss';
+import { Starship } from '../../../interfaces/interfaces';
 
-class StarshipItemComponent extends Component<{
-  name: string;
-  manufacturer: string;
-  cost: string;
-  length: string;
-  passengers: string;
-}> {
+class StarshipItemComponent extends Component<Starship> {
   render(): ReactElement {
     const { name, manufacturer, cost, length, passengers } = this.props;
     return (

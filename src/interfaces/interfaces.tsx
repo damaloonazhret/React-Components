@@ -4,7 +4,7 @@ export interface Starship {
   name: string;
   model: string;
   manufacturer: string;
-  cost_in_credits: string;
+  cost: string;
   length: string;
   max_atmosphering_speed: string;
   crew: string;
@@ -26,6 +26,14 @@ export interface StarshipData {
   next?: string;
   previous?: null | string;
   results: Starship[];
+}
+
+export interface StarshipItemProps {
+  name: string;
+  manufacturer: string;
+  cost: string;
+  length: string;
+  passengers: string;
 }
 
 export interface ErrorBoundaryProps {

@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ErrorInfo, ReactElement } from 'react';
 import style from './ErrorBoundary.module.scss';
 import {
   ErrorBoundaryProps,
@@ -18,6 +18,10 @@ class ErrorBoundary extends React.Component<
 
   static getDerivedStateFromError(error: Error): ErrorBoundaryState {
     return { error };
+  }
+
+  public componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
+    console.error('Uncaught error:', error, errorInfo);
   }
 
   render(): ReactElement {
