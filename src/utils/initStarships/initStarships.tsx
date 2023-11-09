@@ -7,13 +7,10 @@ const initStarships = async (
   limit = 5
 ): Promise<StarshipData> => {
   const dataPage = localStorage.getItem('data-page');
-  const dataPageFilter = localStorage.getItem('data-page-filter');
 
   let data;
 
-  if (dataPageFilter) {
-    data = JSON.parse(dataPageFilter);
-  } else if (dataPage) {
+  if (dataPage) {
     data = JSON.parse(dataPage);
   } else {
     data = await getStarshipsList();

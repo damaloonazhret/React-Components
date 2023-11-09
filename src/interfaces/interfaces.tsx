@@ -4,7 +4,7 @@ export interface Starship {
   name: string;
   model: string;
   manufacturer: string;
-  cost_in_credits: string;
+  cost: string;
   length: string;
   max_atmosphering_speed: string;
   crew: string;
@@ -22,10 +22,18 @@ export interface Starship {
 }
 
 export interface StarshipData {
-  count: number;
+  count?: number;
   next?: string;
   previous?: null | string;
   results: Starship[];
+}
+
+export interface StarshipItemProps {
+  name: string;
+  manufacturer: string;
+  cost: string;
+  length: string;
+  passengers: string;
 }
 
 export interface ErrorBoundaryProps {
@@ -58,14 +66,6 @@ export interface MainPageState {
 
 export interface StarshipListProps {
   results: Starship[];
-}
-
-export interface StarshipItemProps {
-  name: string;
-  manufacturer: string;
-  cost: string;
-  length: string;
-  passengers: string;
 }
 
 export type SetMainPageState = React.Dispatch<

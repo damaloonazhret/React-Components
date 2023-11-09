@@ -11,6 +11,7 @@ import SelectItemsOnPage from '../ItemsOnPage/SelectItemsOnPage';
 import handlePageChange from './handlePageChange';
 import setItemsOnPage from './setItemsOnPage';
 import handleSearch from './handleSearch';
+
 import {
   INITIAL_CURRENT_PAGE,
   INITIAL_ITEMS_COUNT,
@@ -26,9 +27,6 @@ function MainPage(): ReactElement {
     currentPage: INITIAL_CURRENT_PAGE,
     itemsOnPage: INITIAL_ITEMS_ON_PAGE,
   });
-
-  const { results, isLoading } = state;
-  const { filteredResults } = state;
 
   useEffect(() => {
     async function fetchData(): Promise<void> {
@@ -48,7 +46,9 @@ function MainPage(): ReactElement {
     fetchData();
   }, []);
 
-  const displayedResults = filteredResults.length ? filteredResults : results;
+  const displayedResults = state.filteredResults.length
+    ? state.filteredResults
+    : state.results;
   const navigate = useNavigate();
 
   return (
@@ -57,8 +57,8 @@ function MainPage(): ReactElement {
         onSearch={handleSearch}
         setState={setState}
         state={state}
-        results={results}
-        filteredResults={filteredResults}
+        results={state.results}
+        filteredResults={state.filteredResults}
       />
       <Pagination
         itemsCount={state.itemsCount}
@@ -70,7 +70,7 @@ function MainPage(): ReactElement {
         navigate={navigate}
       />
       <SelectItemsOnPage setItemsOnPage={setItemsOnPage} setState={setState} />
-      {isLoading ? (
+      {state.isLoading ? (
         <Preloader />
       ) : (
         <Routes>

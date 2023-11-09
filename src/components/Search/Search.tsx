@@ -17,6 +17,7 @@ function Search(props: SearchProps): ReactElement {
         <input
           className={style.header__input}
           value={searchTerm}
+          placeholder="Search..."
           onChange={handleChange}
           type="text"
         />

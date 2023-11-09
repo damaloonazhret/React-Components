@@ -1,14 +1,9 @@
 import React, { ReactElement } from 'react';
 import style from '../StarshipList.module.scss';
-import { StarshipItemProps } from '../../../interfaces/interfaces';
+import { Starship } from '../../../interfaces/interfaces';
 
-function StarshipItemComponent({
-  name,
-  manufacturer,
-  cost,
-  length,
-  passengers,
-}: StarshipItemProps): ReactElement {
+function StarshipItemComponent(props: Starship): ReactElement {
+  const { name, manufacturer, cost, length, passengers } = props;
   return (
     <div className={style.starships__item}>
       <div>Name: {name}</div>
