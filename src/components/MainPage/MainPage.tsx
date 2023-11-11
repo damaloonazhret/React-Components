@@ -1,13 +1,11 @@
 import React, { ReactElement, useContext } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Search from '../Search/Search';
 import StarshipList from '../StarshipsList/StarshipList';
 import style from './MainPage.module.scss';
 import Preloader from '../../common/Preloader/Preloader';
 import Pagination from '../Pagination/Pagination';
 import SelectItemsOnPage from '../ItemsOnPage/SelectItemsOnPage';
-import handlePageChange from './handlePageChange';
-import setItemsOnPage from './setItemsOnPage';
 import MainPageContext from '../MainPageContext/MainPageContext';
 
 const MainPage = (): ReactElement => {
@@ -17,23 +15,13 @@ const MainPage = (): ReactElement => {
     throw new Error('MainPageContext is not defined');
   }
 
-  const { state, setState } = contextValue;
-
-  const navigate = useNavigate();
+  const { state } = contextValue;
 
   return (
     <section className={style.main}>
       <Search />
-      <Pagination
-        itemsCount={state.itemsCount}
-        currentPage={state.currentPage}
-        onPageChange={handlePageChange}
-        itemsOnPage={state.itemsOnPage}
-        setState={setState}
-        state={state}
-        navigate={navigate}
-      />
-      <SelectItemsOnPage setItemsOnPage={setItemsOnPage} setState={setState} />
+      <Pagination />
+      <SelectItemsOnPage />
       {state.isLoading ? (
         <Preloader />
       ) : (

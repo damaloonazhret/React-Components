@@ -7,13 +7,13 @@ import MainPage from './components/MainPage/MainPage';
 
 const App = (): ReactElement => {
   return (
-    <MainPageProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <MainPageProvider>
         <ErrorBoundary>
           <MainPage />
         </ErrorBoundary>
-      </BrowserRouter>
-    </MainPageProvider>
+      </MainPageProvider>
+    </BrowserRouter>
   );
 };
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { MainPageState } from '../../../interfaces/interfaces';
 import {
   INITIAL_CURRENT_PAGE,
@@ -20,6 +21,8 @@ const MainPageProvider: React.FC<{ children: React.ReactNode }> = ({
     itemsOnPage: INITIAL_ITEMS_ON_PAGE,
   });
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     async function fetchData(): Promise<void> {
       const fetchedData = await initStarships(
@@ -38,7 +41,10 @@ const MainPageProvider: React.FC<{ children: React.ReactNode }> = ({
     fetchData();
   }, []);
 
-  const contextValue = useMemo(() => ({ state, setState }), [state, setState]);
+  const contextValue = useMemo(
+    () => ({ state, setState, navigate }),
+    [state, setState, navigate]
+  );
 
   return (
     <MainPageContext.Provider value={contextValue}>
