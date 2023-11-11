@@ -12,10 +12,10 @@ type SelectItemsOnPageProps = {
   setState: SetMainPageState;
 };
 
-function SelectItemsOnPage({
+const SelectItemsOnPage = ({
   setItemsOnPage,
   setState,
-}: SelectItemsOnPageProps): ReactElement {
+}: SelectItemsOnPageProps): ReactElement => {
   const handleChange = (event: ChangeEvent<HTMLSelectElement>): void => {
     const selectedValue = Number(event.target.value);
     setItemsOnPage(selectedValue, setState);
@@ -32,6 +32,6 @@ function SelectItemsOnPage({
       <option value="10">10</option>
     </select>
   );
-}
+};
 
 export default SelectItemsOnPage;

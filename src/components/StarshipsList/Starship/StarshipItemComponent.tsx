@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import style from '../StarshipList.module.scss';
 import { Starship } from '../../../interfaces/interfaces';
 
-function StarshipItemComponent(props: Starship): ReactElement {
+const StarshipItemComponent = (props: Starship): ReactElement => {
   const { name, manufacturer, cost, length, passengers } = props;
   return (
     <div className={style.starships__item}>
@@ -13,6 +13,6 @@ function StarshipItemComponent(props: Starship): ReactElement {
       <div>Passengers: {passengers}</div>
     </div>
   );
-}
+};
 
 export default StarshipItemComponent;

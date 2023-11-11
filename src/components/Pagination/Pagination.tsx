@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import { PaginationProps } from '../../interfaces/interfaces';
 import style from './Pagination.module.scss';
 
-function Pagination({
+const Pagination = ({
   itemsCount,
   currentPage,
   onPageChange,
@@ -10,7 +10,7 @@ function Pagination({
   setState,
   state,
   navigate,
-}: PaginationProps): ReactElement {
+}: PaginationProps): ReactElement => {
   const totalPages = Math.ceil(itemsCount / itemsOnPage);
   const pageNumbers = Array.from(
     { length: totalPages },
@@ -35,6 +35,6 @@ function Pagination({
       ))}
     </div>
   );
-}
+};
 
 export default Pagination;

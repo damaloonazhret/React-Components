@@ -1,11 +1,15 @@
 import clearFilteredResults from './clearFilteredResults';
 import filterResults from '../../utils/filterResults/filterResults';
 import updateFilteredResultsInStateAndStorage from './updateFilteredResultsInStateAndStorage';
-import { SearchButtonProps } from '../../interfaces/interfaces';
+import { MainPageState, SetMainPageState } from '../../interfaces/interfaces';
 
-const handleSearch = (props: SearchButtonProps): void => {
-  const { searchTerm, setState, state, results } = props;
-  let { filteredResults } = props;
+const handleSearch = (
+  searchTerm: string,
+  setState: SetMainPageState,
+  state: MainPageState
+): void => {
+  let { filteredResults } = state;
+  const { results } = state;
   if (searchTerm === '') {
     clearFilteredResults(setState, state);
   } else {

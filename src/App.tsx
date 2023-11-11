@@ -1,17 +1,20 @@
 import './App.css';
 import { ReactElement } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import MainPage from './components/MainPage/MainPage';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
+import MainPageProvider from './components/MainPageContext/MainPageProvider/MainPageProvider';
+import MainPage from './components/MainPage/MainPage';
 
-function App(): ReactElement {
+const App = (): ReactElement => {
   return (
-    <BrowserRouter>
-      <ErrorBoundary>
-        <MainPage />
-      </ErrorBoundary>
-    </BrowserRouter>
+    <MainPageProvider>
+      <BrowserRouter>
+        <ErrorBoundary>
+          <MainPage />
+        </ErrorBoundary>
+      </BrowserRouter>
+    </MainPageProvider>
   );
-}
+};
 
 export default App;
