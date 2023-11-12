@@ -64,27 +64,6 @@ export interface MainPageState {
   itemsOnPage: number;
 }
 
-export interface StarshipListProps {
-  results: Starship[];
-}
-
 export type SetMainPageState = React.Dispatch<
   React.SetStateAction<MainPageState>
 >;
-
-export interface PaginationProps {
-  itemsCount: number;
-  currentPage: number;
-  onPageChange: (
-    pageNumber: number,
-    setState: (
-      value: ((prevState: MainPageState) => MainPageState) | MainPageState
-    ) => void,
-    state: MainPageState,
-    navigate: (to: string) => void
-  ) => void;
-  itemsOnPage: number;
-  setState: SetMainPageState;
-  state: MainPageState;
-  navigate: (to: string) => void;
-}

@@ -8,7 +8,7 @@ const StarshipList: React.FC = () => {
   const contextValue = useContext(MainPageContext);
 
   if (!contextValue) {
-    throw new Error('MainPageContext is not defined');
+    throw new Error('MainPageContext is not defined!');
   }
 
   const { state } = contextValue;
