@@ -5,7 +5,7 @@ const config: Config.InitialOptions = {
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
   },
-  type: 'module', // You can remove this line if it's not necessary
+  type: 'module',
   extensions: ['js', 'jsx', 'ts', 'tsx'],
 } as Config.InitialOptions;
 
