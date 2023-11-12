@@ -1,10 +1,3 @@
-// export default {
-//   preset: 'ts-jest',
-//   testEnvironment: 'jsdom',
-//   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-//   setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
-// };
-
 import { Config } from '@jest/types';
 
 const config: Config.InitialOptions = {

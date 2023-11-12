@@ -13,6 +13,11 @@
     "coverage": "vitest run --coverage",
     "prepare": "husky install"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test"
+    }
+  },
   "dependencies": {
     "@jest/types": "^29.6.3",
     "@testing-library/react": "^14.1.0",
