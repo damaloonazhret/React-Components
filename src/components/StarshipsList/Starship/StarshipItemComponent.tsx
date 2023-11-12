@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react';
 import style from '../StarshipList.module.scss';
-import { Starship } from '../../../interfaces/interfaces';
+import { StarshipItemProps } from '../../../interfaces/interfaces';
 
-const StarshipItemComponent = (props: Starship): ReactElement => {
-  const { name, manufacturer, cost, length, passengers } = props;
+const StarshipItemComponent = (context: StarshipItemProps): ReactElement => {
+  const { name, manufacturer, cost, length, passengers } = context;
   return (
     <div className={style.starships__item}>
       <div>Name: {name}</div>

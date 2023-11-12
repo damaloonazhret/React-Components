@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "lib": ["DOM", "DOM.Iterable", "ES2020"],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ES2020"
+    ],
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -15,9 +19,10 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "types": ["vitest-dom/extend-expect", "vitest/globals"]
   },
   "include": [
-    "vite.config.mts", ".eslintrc.cjs", "src"],
+    "vite.config.mts", ".eslintrc.cjs", "src", "jest.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
