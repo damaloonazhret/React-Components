@@ -1,23 +1,19 @@
 import selectPage from '../../utils/selectPage';
-import { MainPageState, SetMainPageState } from '../../interfaces/interfaces';
+import { PaginationActionProps } from '../../interfaces/interfaces';
 
-const handlePageChange = async (
-  pageNumber: number,
-  setState: SetMainPageState,
-  state: MainPageState,
-  navigate: (to: string) => void
-): Promise<void> => {
-  setState((prevState) => ({
-    ...prevState,
-    isLoading: true,
-  }));
-  const page = await selectPage(pageNumber, state.itemsOnPage);
-  setState((prevState) => ({
-    ...prevState,
-    isLoading: false,
-    results: page,
-    currentPage: pageNumber,
-  }));
+const handlePageChange: (props: PaginationActionProps) => void = async ({
+  pageNumber,
+  setIsLoading,
+  setResults,
+  setCurrentPage,
+  itemsOnPage,
+  navigate,
+}) => {
+  setIsLoading(true);
+  const page = await selectPage(pageNumber, itemsOnPage);
+  setIsLoading(false);
+  setResults(page);
+  setCurrentPage(pageNumber);
   navigate(`/page/${pageNumber}`);
 };
 

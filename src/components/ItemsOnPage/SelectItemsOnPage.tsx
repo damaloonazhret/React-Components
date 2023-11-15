@@ -1,24 +1,25 @@
 import React, { ChangeEvent, ReactElement } from 'react';
-import { MainPageState, SetMainPageState } from '../../interfaces/interfaces';
 import style from './SelectItemsOnPage.module.scss';
+import setItemsOnPageChange from '../MainPage/setItemsOnPageChange';
+import { SelectItemsOnPageProps } from './ItemsOnPageInterfaces/interfaces';
 
-type SelectItemsOnPageProps = {
-  setItemsOnPage: (
-    items: number,
-    setState: (
-      value: ((prevState: MainPageState) => MainPageState) | MainPageState
-    ) => void
-  ) => Promise<void>;
-  setState: SetMainPageState;
-};
-
-function SelectItemsOnPage({
+const SelectItemsOnPage = ({
+  setIsLoading,
   setItemsOnPage,
-  setState,
-}: SelectItemsOnPageProps): ReactElement {
+  setCurrentPage,
+  setItemsCount,
+  setResults,
+}: SelectItemsOnPageProps): ReactElement => {
   const handleChange = (event: ChangeEvent<HTMLSelectElement>): void => {
     const selectedValue = Number(event.target.value);
-    setItemsOnPage(selectedValue, setState);
+    setItemsOnPageChange({
+      selectedValue,
+      setIsLoading,
+      setItemsOnPage,
+      setCurrentPage,
+      setItemsCount,
+      setResults,
+    });
   };
 
   return (
@@ -32,6 +33,6 @@ function SelectItemsOnPage({
       <option value="10">10</option>
     </select>
   );
-}
+};
 
 export default SelectItemsOnPage;

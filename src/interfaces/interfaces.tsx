@@ -28,14 +28,6 @@ export interface StarshipData {
   results: Starship[];
 }
 
-export interface StarshipItemProps {
-  name: string;
-  manufacturer: string;
-  cost: string;
-  length: string;
-  passengers: string;
-}
-
 export interface ErrorBoundaryProps {
   children: ReactNode;
 }
@@ -45,46 +37,24 @@ export interface ErrorBoundaryState {
 }
 
 export interface SearchProps {
-  onSearch: (props: SearchButtonProps) => void;
-  setState: SetMainPageState;
-  state: MainPageState;
+  onSearch: (newFilteredResults: Starship[]) => void;
   results: Starship[];
-  filteredResults: Starship[];
+  filteredResults?: Starship[];
 }
 export interface SearchButtonProps extends SearchProps {
   searchTerm: string;
 }
 
-export interface MainPageState {
-  results: Starship[];
-  filteredResults: Starship[];
-  isLoading: boolean;
-  itemsCount: number;
-  currentPage: number;
+export interface PaginationActionProps {
+  pageNumber: number;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setResults: React.Dispatch<React.SetStateAction<Starship[]>>;
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
   itemsOnPage: number;
-}
-
-export interface StarshipListProps {
-  results: Starship[];
-}
-
-export type SetMainPageState = React.Dispatch<
-  React.SetStateAction<MainPageState>
->;
-
-export interface PaginationProps {
-  itemsCount: number;
-  currentPage: number;
-  onPageChange: (
-    pageNumber: number,
-    setState: (
-      value: ((prevState: MainPageState) => MainPageState) | MainPageState
-    ) => void,
-    state: MainPageState,
-    navigate: (to: string) => void
-  ) => void;
-  itemsOnPage: number;
-  setState: SetMainPageState;
-  state: MainPageState;
   navigate: (to: string) => void;
+}
+
+export enum LocalStorageKeys {
+  DataPage = 'data-page',
+  DataPageFilter = 'data-page-filter',
 }

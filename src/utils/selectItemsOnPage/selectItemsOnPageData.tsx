@@ -1,7 +1,7 @@
 import getStarshipsList from '../../api/getStarshipsList';
-import { StarshipData } from '../../interfaces/interfaces';
+import { LocalStorageKeys, StarshipData } from '../../interfaces/interfaces';
 
-const selectItemsOnPage = async (
+const selectItemsOnPageData = async (
   limit: number
 ): Promise<StarshipData | string | null> => {
   let data = await getStarshipsList();
@@ -10,9 +10,9 @@ const selectItemsOnPage = async (
     const dataCopy = { ...data };
     dataCopy.results = limitedResults;
     data = dataCopy;
-    localStorage.setItem('data-page', JSON.stringify(data));
+    localStorage.setItem(LocalStorageKeys.DataPage, JSON.stringify(data));
     return data;
   }
   return data;
 };
-export default selectItemsOnPage;
+export default selectItemsOnPageData;

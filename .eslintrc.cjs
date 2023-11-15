@@ -61,6 +61,11 @@ module.exports = {
     '@typescript-eslint/ban-ts-comment': 'error',
     "@typescript-eslint/explicit-function-return-type": "error",
     'react-hooks/exhaustive-deps': 'off',
+    'prefer-arrow-callback': 'warn',
+    'react/function-component-definition': ['error', { namedComponents: 'arrow-function' }],
+    "prefer-const": ["error", {
+      "destructuring": "all"
+    }]
   },
   settings: {
     react: {

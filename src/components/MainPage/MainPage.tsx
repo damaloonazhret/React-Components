@@ -1,76 +1,70 @@
 import { ReactElement, useEffect, useState } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Search from '../Search/Search';
 import StarshipList from '../StarshipsList/StarshipList';
 import style from './MainPage.module.scss';
 import Preloader from '../../common/Preloader/Preloader';
 import initStarships from '../../utils/initStarships/initStarships';
-import { MainPageState } from '../../interfaces/interfaces';
+import { Starship } from '../../interfaces/interfaces';
 import Pagination from '../Pagination/Pagination';
 import SelectItemsOnPage from '../ItemsOnPage/SelectItemsOnPage';
 import handlePageChange from './handlePageChange';
-import setItemsOnPage from './setItemsOnPage';
-import handleSearch from './handleSearch';
 
 import {
   INITIAL_CURRENT_PAGE,
   INITIAL_ITEMS_COUNT,
   INITIAL_ITEMS_ON_PAGE,
-} from '../../constants/constants';
+} from '../../_constants_/constants';
 
-function MainPage(): ReactElement {
-  const [state, setState] = useState<MainPageState>({
-    results: [],
-    filteredResults: [],
-    isLoading: true,
-    itemsCount: INITIAL_ITEMS_COUNT,
-    currentPage: INITIAL_CURRENT_PAGE,
-    itemsOnPage: INITIAL_ITEMS_ON_PAGE,
-  });
+const MainPage = (): ReactElement => {
+  const [results, setResults] = useState<Starship[]>([]);
+  const [filteredResults, setFilteredResults] = useState<Starship[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [itemsCount, setItemsCount] = useState(INITIAL_ITEMS_COUNT);
+  const [currentPage, setCurrentPage] = useState(INITIAL_CURRENT_PAGE);
+  const [itemsOnPage, setItemsOnPage] = useState(INITIAL_ITEMS_ON_PAGE);
+
+  const displayedResults = filteredResults.length ? filteredResults : results;
 
   useEffect(() => {
     async function fetchData(): Promise<void> {
-      const fetchedData = await initStarships(
-        state.currentPage,
-        state.currentPage,
-        state.itemsOnPage
-      );
-      setState((prevState) => ({
-        ...prevState,
-        results: fetchedData.results,
-        itemsCount: fetchedData.count || INITIAL_ITEMS_COUNT,
-        isLoading: false,
-      }));
+      const fetchedData = await initStarships(itemsOnPage);
+      setResults(fetchedData.results);
+      setItemsCount(fetchedData.count || INITIAL_ITEMS_COUNT);
+      setIsLoading(false);
     }
 
     fetchData();
   }, []);
 
-  const displayedResults = state.filteredResults.length
-    ? state.filteredResults
-    : state.results;
-  const navigate = useNavigate();
+  const handleSearch = (newFilteredResults: Starship[]): void => {
+    setFilteredResults(newFilteredResults);
+  };
 
   return (
     <section className={style.main}>
       <Search
         onSearch={handleSearch}
-        setState={setState}
-        state={state}
-        results={state.results}
-        filteredResults={state.filteredResults}
+        results={results}
+        filteredResults={filteredResults}
       />
       <Pagination
-        itemsCount={state.itemsCount}
-        currentPage={state.currentPage}
+        itemsCount={itemsCount}
+        currentPage={currentPage}
         onPageChange={handlePageChange}
-        itemsOnPage={state.itemsOnPage}
-        setState={setState}
-        state={state}
-        navigate={navigate}
+        itemsOnPage={itemsOnPage}
+        setIsLoading={setIsLoading}
+        setResults={setResults}
+        setCurrentPage={setCurrentPage}
       />
-      <SelectItemsOnPage setItemsOnPage={setItemsOnPage} setState={setState} />
-      {state.isLoading ? (
+      <SelectItemsOnPage
+        setIsLoading={setIsLoading}
+        setItemsOnPage={setItemsOnPage}
+        setCurrentPage={setCurrentPage}
+        setItemsCount={setItemsCount}
+        setResults={setResults}
+      />
+      {isLoading ? (
         <Preloader />
       ) : (
         <Routes>
@@ -88,6 +82,6 @@ function MainPage(): ReactElement {
       <div className={style.twinkling} />
     </section>
   );
-}
+};
 
 export default MainPage;

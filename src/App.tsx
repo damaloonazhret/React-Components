@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import MainPage from './components/MainPage/MainPage';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 
-function App(): ReactElement {
+const App = (): ReactElement => {
   return (
     <BrowserRouter>
       <ErrorBoundary>
@@ -12,6 +12,6 @@ function App(): ReactElement {
       </ErrorBoundary>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
