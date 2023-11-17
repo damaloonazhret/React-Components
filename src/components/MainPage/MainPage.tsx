@@ -1,4 +1,4 @@
-import React, { ReactElement, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Search from '../Search/Search';
 import StarshipList from '../StarshipsList/StarshipList';
@@ -8,21 +8,22 @@ import Pagination from '../Pagination/Pagination';
 import SelectItemsOnPage from '../ItemsOnPage/SelectItemsOnPage';
 import MainPageContext from '../MainPageContext/MainPageContext';
 
-const MainPage = (): ReactElement => {
+const MainPage = (): React.ReactElement | null => {
   const contextValue = useContext(MainPageContext);
 
   if (!contextValue) {
-    throw new Error('MainPageContext is not defined');
+    return null;
   }
 
   const { state } = contextValue;
+  const { isLoading } = state;
 
   return (
     <section className={style.main}>
       <Search />
       <Pagination />
       <SelectItemsOnPage />
-      {state.isLoading ? (
+      {isLoading ? (
         <Preloader />
       ) : (
         <Routes>

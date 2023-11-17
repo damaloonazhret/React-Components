@@ -1,4 +1,4 @@
-import { Starship } from '../../interfaces/interfaces';
+import { Starship } from '../../_interfaces_/globalInterfaces';
 
 const filterResults = (
   results: Array<Starship>,

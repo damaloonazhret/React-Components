@@ -1,20 +1,19 @@
-import React, { ChangeEvent, ReactElement, useContext } from 'react';
+import React, { ChangeEvent, useContext } from 'react';
 import style from './SelectItemsOnPage.module.scss';
-import setItemsOnPage from '../MainPage/setItemsOnPage';
+import setItemsOnPageChange from '../MainPage/setItemsOnPageChange';
 import MainPageContext from '../MainPageContext/MainPageContext';
 
-const SelectItemsOnPage = (): ReactElement => {
+const SelectItemsOnPage = (): React.ReactElement | null => {
   const contextValue = useContext(MainPageContext);
-
-  if (!contextValue) {
-    throw new Error('MainPageContext is not defined');
-  }
-
-  const { setState } = contextValue;
+  if (!contextValue) return null;
+  const { dispatch } = contextValue;
 
   const handleChange = (event: ChangeEvent<HTMLSelectElement>): void => {
     const selectedValue = Number(event.target.value);
-    setItemsOnPage(selectedValue, setState);
+    setItemsOnPageChange({
+      selectedValue,
+      dispatch,
+    });
   };
 
   return (

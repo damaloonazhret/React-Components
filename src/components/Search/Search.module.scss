@@ -15,7 +15,7 @@
     padding: 0 0 0 20px;
     border-radius: 10px;
   }
-  &__button{
+  &__button {
     width: 100%;
     height: 50px;
     padding: 0;
@@ -25,10 +25,10 @@
     color: #ffdc95;
     background-color: #21023d;
     border-radius: 10px;
-    &:active{
+    &:active {
       transform: scale(0.95);
     }
-    &:hover{
+    &:hover {
       background-color: #170528;
     }
   }

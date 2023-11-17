@@ -1,12 +1,10 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { MainPageState } from '../../interfaces/interfaces';
+import { MainPageAction, MainPageState } from './interfaces';
 
 const MainPageContext = React.createContext<
   | {
       state: MainPageState;
-      setState: React.Dispatch<React.SetStateAction<MainPageState>>;
-      navigate: ReturnType<typeof useNavigate>;
+      dispatch: React.Dispatch<MainPageAction>;
     }
   | undefined
 >(undefined);

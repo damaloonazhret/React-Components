@@ -1,10 +1,10 @@
 import React, { useMemo, useState } from 'react';
-import { MainPageState } from '../../interfaces/interfaces';
 import {
   INITIAL_CURRENT_PAGE,
   INITIAL_ITEMS_COUNT,
   INITIAL_ITEMS_ON_PAGE,
-} from '../../constants/constants';
+} from '../../_constants_/constants';
+import { MainPageState } from '../../components/MainPageContext/interfaces';
 
 const result = [
   {

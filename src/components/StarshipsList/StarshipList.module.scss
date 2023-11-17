@@ -1,6 +1,6 @@
 .starships {
   display: grid;
-  grid-template-columns: repeat(3,20vw);
+  grid-template-columns: repeat(3, 20vw);
   grid-template-rows: repeat(3, auto);
   justify-content: center;
   align-content: center;
@@ -19,7 +19,7 @@
     &:hover {
       background-color: rgba(147, 110, 206, 0.14);
     }
-    &:active{
+    &:active {
       transform: scale(0.95);
     }
   }

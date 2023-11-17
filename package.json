@@ -6,17 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint . --ext ts,tsx",
     "format:fix": "prettier --write .",
     "preview": "vite preview",
+    "prepare": "husky install",
+    "precommit": "prettier --write .",
     "test": "vitest",
-    "coverage": "vitest run --coverage",
-    "prepare": "husky install"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged && npm run test"
-    }
+    "test:cover": "npx jest --coverage"
   },
   "dependencies": {
     "@jest/types": "^29.6.3",

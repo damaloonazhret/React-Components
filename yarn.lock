@@ -4187,9 +4187,9 @@ ms@2.0.0:
   integrity sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==
 
 msw@^2.0.5:
-  version "2.0.5"
-  resolved "https://registry.npmjs.org/msw/-/msw-2.0.5.tgz"
-  integrity sha512-vjI7rEtv879CvbTGUfcI6JjKVE/XX/MU8uggiCkAzfl930U8LSp0h81RnfNfVOllELlbLTCvGkpV3e7TuVBGdA==
+  version "2.0.6"
+  resolved "https://registry.npmjs.org/msw/-/msw-2.0.6.tgz"
+  integrity sha512-74nN9ADQxHsVx8YGOq5yeDE4bye1mVMAYXojKl0qWraRunTK8UjAVk3wSmOOvVVIDJsyySyjDZ4oYvRuzuMO2g==
   dependencies:
     "@bundled-es-modules/cookie" "^2.0.0"
     "@bundled-es-modules/js-levenshtein" "^2.0.1"

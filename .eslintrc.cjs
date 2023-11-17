@@ -54,15 +54,24 @@ module.exports = {
     'react/state-in-constructor': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/prefer-stateless-function': 'off',
-    "no-await-in-loop": "off",
-    "no-console": "off",
+    'no-await-in-loop': 'off',
+    'no-console': 'off',
     '@typescript-eslint/no-explicit-any': 'error',
     'react-hooks/rules-of-hooks': 'error',
     '@typescript-eslint/ban-ts-comment': 'error',
-    "@typescript-eslint/explicit-function-return-type": "error",
+    '@typescript-eslint/explicit-function-return-type': 'error',
     'react-hooks/exhaustive-deps': 'off',
     'prefer-arrow-callback': 'warn',
-    'react/function-component-definition': ['error', { namedComponents: 'arrow-function' }],
+    'react/function-component-definition': [
+      'error',
+      { namedComponents: 'arrow-function' },
+    ],
+    'prefer-const': [
+      'error',
+      {
+        destructuring: 'all',
+      },
+    ],
   },
   settings: {
     react: {

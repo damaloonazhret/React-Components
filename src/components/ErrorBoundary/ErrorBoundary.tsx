@@ -3,7 +3,7 @@ import style from './ErrorBoundary.module.scss';
 import {
   ErrorBoundaryProps,
   ErrorBoundaryState,
-} from '../../interfaces/interfaces';
+} from '../../_interfaces_/interfaces';
 
 class ErrorBoundary extends React.Component<
   ErrorBoundaryProps,

@@ -1,4 +1,4 @@
-import { StarshipData } from '../interfaces/interfaces';
+import { StarshipData } from '../_interfaces_/globalInterfaces';
 
 async function getStarshipsList(): Promise<StarshipData | string | null> {
   const apiUrl: string = 'https://swapi.dev/api/starships/';

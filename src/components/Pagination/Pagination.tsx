@@ -1,19 +1,21 @@
-import React, { ReactElement, useContext } from 'react';
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import style from './Pagination.module.scss';
 import MainPageContext from '../MainPageContext/MainPageContext';
 import handlePageChange from '../MainPage/handlePageChange';
 
-const Pagination = (): ReactElement => {
+const Pagination = (): React.ReactElement | null => {
+  const navigate = useNavigate();
   const contextValue = useContext(MainPageContext);
 
   if (!contextValue) {
-    throw new Error('MainPageContext is not defined');
+    return null;
   }
 
-  const { setState, state, navigate } = contextValue;
+  const { state, dispatch } = contextValue;
   const { itemsCount, itemsOnPage, currentPage } = state;
-  const totalPages = Math.ceil(itemsCount / itemsOnPage);
 
+  const totalPages = Math.ceil(itemsCount / itemsOnPage);
   const pageNumbers = Array.from(
     { length: totalPages },
     (_, index) => index + 1
@@ -26,11 +28,18 @@ const Pagination = (): ReactElement => {
           className={style.pagination__button}
           type="button"
           key={pageNumber}
-          onClick={async (): Promise<void> =>
-            handlePageChange(pageNumber, setState, state, navigate)
+          onClick={(): void =>
+            handlePageChange({
+              pageNumber,
+              navigate,
+              itemsOnPage,
+              dispatch,
+            })
           }
           disabled={pageNumber === currentPage}
-          style={{ fontWeight: pageNumber === currentPage ? 'bold' : 'normal' }}
+          style={{
+            fontWeight: pageNumber === currentPage ? 'bold' : 'normal',
+          }}
         >
           {pageNumber}
         </button>

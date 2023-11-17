@@ -5,11 +5,27 @@
   height: 20vh;
   border-radius: 50%;
   background: #59098a;
-  background: -moz-linear-gradient(left, #59098a 10%, rgba(101, 171, 248, 0) 42%);
-  background: -webkit-linear-gradient(left, #59098a 10%, rgba(101, 171, 248, 0) 42%);
+  background: -moz-linear-gradient(
+    left,
+    #59098a 10%,
+    rgba(101, 171, 248, 0) 42%
+  );
+  background: -webkit-linear-gradient(
+    left,
+    #59098a 10%,
+    rgba(101, 171, 248, 0) 42%
+  );
   background: -o-linear-gradient(left, #59098a 10%, rgba(101, 171, 248, 0) 42%);
-  background: -ms-linear-gradient(left, #59098a 10%, rgba(101, 171, 248, 0) 42%);
-  background: linear-gradient(to right, #59098a 10%, rgba(101, 171, 248, 0) 42%);
+  background: -ms-linear-gradient(
+    left,
+    #59098a 10%,
+    rgba(101, 171, 248, 0) 42%
+  );
+  background: linear-gradient(
+    to right,
+    #59098a 10%,
+    rgba(101, 171, 248, 0) 42%
+  );
   -webkit-animation: load3 1.4s infinite linear;
   animation: load3 1.4s infinite linear;
   -webkit-transform: translateZ(0);

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import StarshipItemComponent from './Starship/StarshipItemComponent';
-import { Starship } from '../../interfaces/interfaces';
+import { Starship } from '../../_interfaces_/globalInterfaces';
 import style from './StarshipList.module.scss';
 import MainPageContext from '../MainPageContext/MainPageContext';
 
@@ -17,7 +17,7 @@ const StarshipList: React.FC = () => {
     ? state.filteredResults
     : state.results;
 
-  const StarshipItems = displayedResults.map((result: Starship) => (
+  const StarshipItems = displayedResults.map((result) => (
     <StarshipItemComponent key={result.name} {...(result as Starship)} />
   ));
 

@@ -1,14 +1,7 @@
-import { MainPageState, SetMainPageState } from '../../interfaces/interfaces';
+import { LocalStorageKeys } from '../../_interfaces_/interfaces';
 
-const clearFilteredResults = (
-  setState: SetMainPageState,
-  state: MainPageState
-): void => {
-  setState({
-    ...state,
-    filteredResults: [],
-  });
-  localStorage.removeItem('data-page-filter');
+const clearFilteredResults = (): void => {
+  localStorage.removeItem(LocalStorageKeys.DataPageFilter);
 };
 
 export default clearFilteredResults;
