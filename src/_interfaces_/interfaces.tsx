@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { MainPageAction } from '../components/MainPageContext/interfaces';
+import { MainPageAction } from '../components/Actions/interfaces';
 import { Starship } from './globalInterfaces';
 
 export interface ErrorBoundaryProps {

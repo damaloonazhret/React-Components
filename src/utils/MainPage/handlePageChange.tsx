@@ -1,6 +1,6 @@
 import selectPage from '../SelectPage/selectPage';
 import { PaginationActionProps } from '../../_interfaces_/interfaces';
-import { ACTIONS } from '../../components/MainPageContext/MainPageProvider';
+import ACTIONS from '../../components/Actions';
 
 const handlePageChange: (props: PaginationActionProps) => void = async ({
   pageNumber,

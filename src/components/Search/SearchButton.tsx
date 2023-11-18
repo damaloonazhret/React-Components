@@ -1,26 +1,20 @@
-import { MouseEventHandler, ReactElement, useContext } from 'react';
+import { MouseEventHandler, ReactElement } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import style from './Search.module.scss';
-
 import { LocalStorageKeys } from '../../_interfaces_/interfaces';
 import { Starship, StarshipData } from '../../_interfaces_/globalInterfaces';
 import filterResults from '../../utils/filterResults/filterResults';
 import clearFilteredResults from '../../utils/MainPage/clearFilteredResults';
-import MainPageContext from '../MainPageContext/MainPageContext';
-import { ACTIONS } from '../MainPageContext/MainPageProvider';
+import ACTIONS from '../Actions';
+import { MainPageState } from '../Actions/interfaces';
 
 interface SearchTerm {
   searchTerm: string;
 }
 
 const SearchButton = ({ searchTerm }: SearchTerm): ReactElement | null => {
-  const contextValue = useContext(MainPageContext);
-
-  if (!contextValue) {
-    return null;
-  }
-
-  const { state, dispatch } = contextValue;
-  const { results } = state;
+  const results = useSelector((state: MainPageState) => state.results);
+  const dispatch = useDispatch();
   const handleClick: MouseEventHandler<HTMLButtonElement> = async (event) => {
     event.preventDefault();
 

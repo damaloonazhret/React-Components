@@ -4,7 +4,7 @@ import {
   INITIAL_ITEMS_COUNT,
   INITIAL_ITEMS_ON_PAGE,
 } from '../../_constants_/constants';
-import { MainPageState } from '../../components/MainPageContext/interfaces';
+import { MainPageState } from '../../components/Actions/interfaces';
 
 const result = [
   {

@@ -3,8 +3,8 @@ import {
   INITIAL_ITEMS_COUNT,
 } from '../../_constants_/constants';
 import selectItemsOnPageData from '../selectItemsOnPage/selectItemsOnPageData';
-import { ACTIONS } from '../../components/MainPageContext/MainPageProvider';
-import { MainPageAction } from '../../components/MainPageContext/interfaces';
+import { MainPageAction } from '../../components/Actions/interfaces';
+import ACTIONS from '../../components/Actions';
 
 interface SetItemsOnPage {
   selectedValue: number;

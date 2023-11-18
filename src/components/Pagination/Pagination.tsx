@@ -1,19 +1,16 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import style from './Pagination.module.scss';
-import MainPageContext from '../MainPageContext/MainPageContext';
 import handlePageChange from '../../utils/MainPage/handlePageChange';
+import { MainPageState } from '../Actions/interfaces';
 
 const Pagination = (): React.ReactElement | null => {
   const navigate = useNavigate();
-  const contextValue = useContext(MainPageContext);
-
-  if (!contextValue) {
-    return null;
-  }
-
-  const { state, dispatch } = contextValue;
-  const { itemsCount, itemsOnPage, currentPage } = state;
+  const { itemsCount, itemsOnPage, currentPage } = useSelector(
+    (state: MainPageState) => state
+  );
+  const dispatch = useDispatch();
 
   const totalPages = Math.ceil(itemsCount / itemsOnPage);
   const pageNumbers = Array.from(
