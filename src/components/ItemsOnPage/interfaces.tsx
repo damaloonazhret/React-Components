@@ -1,5 +1,5 @@
 import React from 'react';
-import { Starship } from '../../../_interfaces_/globalInterfaces';
+import { Starship } from '../../_interfaces_/globalInterfaces';
 
 export type SelectItemsOnPageProps = {
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;

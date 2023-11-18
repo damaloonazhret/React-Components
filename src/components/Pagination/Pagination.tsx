@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import style from './Pagination.module.scss';
 import MainPageContext from '../MainPageContext/MainPageContext';
-import handlePageChange from '../MainPage/handlePageChange';
+import handlePageChange from '../../utils/MainPage/handlePageChange';
 
 const Pagination = (): React.ReactElement | null => {
   const navigate = useNavigate();

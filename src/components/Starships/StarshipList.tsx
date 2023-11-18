@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import StarshipItemComponent from './Starship/StarshipItemComponent';
+import StarshipItemComponent from './StarshipItemComponent';
 import { Starship } from '../../_interfaces_/globalInterfaces';
 import style from './StarshipList.module.scss';
 import MainPageContext from '../MainPageContext/MainPageContext';

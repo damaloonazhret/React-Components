@@ -1,11 +1,11 @@
-import getPage from '../api/getPage';
+import getPage from '../../api/getPage';
 import {
   DEFAULT_ITEMS_ON_PAGE,
   INITIAL_ITEMS_ON_PAGE,
   MAX_ITEMS_ON_PAGE,
   MIN_ITEMS_ON_PAGE,
-} from '../_constants_/constants';
-import { Starship } from '../_interfaces_/globalInterfaces';
+} from '../../_constants_/constants';
+import { Starship } from '../../_interfaces_/globalInterfaces';
 
 async function selectPage(
   pageNumber: number,

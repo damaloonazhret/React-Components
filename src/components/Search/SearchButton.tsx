@@ -4,9 +4,9 @@ import style from './Search.module.scss';
 import { LocalStorageKeys } from '../../_interfaces_/interfaces';
 import { Starship, StarshipData } from '../../_interfaces_/globalInterfaces';
 import filterResults from '../../utils/filterResults/filterResults';
-import clearFilteredResults from '../MainPage/clearFilteredResults';
+import clearFilteredResults from '../../utils/MainPage/clearFilteredResults';
 import MainPageContext from '../MainPageContext/MainPageContext';
-import { ACTIONS } from '../MainPageContext/MainPageProvider/MainPageProvider';
+import { ACTIONS } from '../MainPageContext/MainPageProvider';
 
 interface SearchTerm {
   searchTerm: string;

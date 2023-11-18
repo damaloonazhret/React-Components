@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
-import style from '../StarshipList.module.scss';
-import { Starship } from '../../../_interfaces_/globalInterfaces';
+import style from './StarshipList.module.scss';
+import { Starship } from '../../_interfaces_/globalInterfaces';
 
 const StarshipItemComponent = ({
   name,

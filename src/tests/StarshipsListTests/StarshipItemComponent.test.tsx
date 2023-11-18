@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-import StarshipItemComponent from '../../components/StarshipsList/Starship/StarshipItemComponent';
+import StarshipItemComponent from '../../components/Starships/StarshipItemComponent';
 
 const starshipMock = {
   name: 'Starship 1',

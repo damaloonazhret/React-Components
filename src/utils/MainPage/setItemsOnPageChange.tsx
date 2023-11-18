@@ -2,9 +2,9 @@ import {
   INITIAL_CURRENT_PAGE,
   INITIAL_ITEMS_COUNT,
 } from '../../_constants_/constants';
-import selectItemsOnPageData from '../../utils/selectItemsOnPage/selectItemsOnPageData';
-import { ACTIONS } from '../MainPageContext/MainPageProvider/MainPageProvider';
-import { MainPageAction } from '../MainPageContext/interfaces';
+import selectItemsOnPageData from '../selectItemsOnPage/selectItemsOnPageData';
+import { ACTIONS } from '../../components/MainPageContext/MainPageProvider';
+import { MainPageAction } from '../../components/MainPageContext/interfaces';
 
 interface SetItemsOnPage {
   selectedValue: number;

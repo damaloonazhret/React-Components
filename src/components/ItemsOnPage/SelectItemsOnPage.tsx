@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useContext } from 'react';
 import style from './SelectItemsOnPage.module.scss';
-import setItemsOnPageChange from '../MainPage/setItemsOnPageChange';
+import setItemsOnPageChange from '../../utils/MainPage/setItemsOnPageChange';
 import MainPageContext from '../MainPageContext/MainPageContext';
 
 const SelectItemsOnPage = (): React.ReactElement | null => {

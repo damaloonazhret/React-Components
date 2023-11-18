@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Search from '../Search/Search';
-import StarshipList from '../StarshipsList/StarshipList';
+import StarshipList from '../Starships/StarshipList';
 import style from './MainPage.module.scss';
 import Preloader from '../../common/Preloader/Preloader';
 import Pagination from '../Pagination/Pagination';

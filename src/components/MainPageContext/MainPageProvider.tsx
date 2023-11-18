@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo, useReducer } from 'react';
-import MainPageContext from '../MainPageContext';
-import initStarships from '../../../utils/initStarships/initStarships';
+import MainPageContext from './MainPageContext';
+import initStarships from '../../utils/initStarships/initStarships';
 import {
   INITIAL_CURRENT_PAGE,
   INITIAL_ITEMS_COUNT,
   INITIAL_ITEMS_ON_PAGE,
-} from '../../../_constants_/constants';
-import { MainPageAction, MainPageState } from '../interfaces';
+} from '../../_constants_/constants';
+import { MainPageAction, MainPageState } from './interfaces';
 
 export const ACTIONS = {
   SET_RESULTS: 'SET_RESULTS',
