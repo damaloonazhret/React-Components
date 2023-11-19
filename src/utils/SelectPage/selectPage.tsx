@@ -17,7 +17,6 @@ async function SelectPage(
     (pageNumber * itemsPerPage) / DEFAULT_ITEMS_ON_PAGE
   );
   const data = await getPage(pageToFetch);
-  // const { data } = useGetStarshipsByPageQuery(pageToFetch);
 
   if (Array.isArray(data)) {
     const start = ((pageNumber - 1) * itemsPerPage) % DEFAULT_ITEMS_ON_PAGE;
