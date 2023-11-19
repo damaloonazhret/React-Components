@@ -1,6 +1,6 @@
-import selectPage from '../SelectPage/selectPage';
 import { PaginationActionProps } from '../../_interfaces_/interfaces';
 import ACTIONS from '../../components/Actions';
+import selectPage from '../SelectPage/selectPage';
 
 const handlePageChange: (props: PaginationActionProps) => void = async ({
   pageNumber,
@@ -15,5 +15,4 @@ const handlePageChange: (props: PaginationActionProps) => void = async ({
   dispatch({ type: ACTIONS.SET_CURRENT_PAGE, payload: pageNumber });
   navigate(`/page/${pageNumber}`);
 };
-
 export default handlePageChange;

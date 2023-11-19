@@ -1,4 +1,3 @@
-import getPage from '../../api/getPage';
 import {
   DEFAULT_ITEMS_ON_PAGE,
   INITIAL_ITEMS_ON_PAGE,
@@ -6,8 +5,9 @@ import {
   MIN_ITEMS_ON_PAGE,
 } from '../../_constants_/constants';
 import { Starship } from '../../_interfaces_/globalInterfaces';
+import getPage from '../../api/getPage';
 
-async function selectPage(
+async function SelectPage(
   pageNumber: number,
   limit: number = INITIAL_ITEMS_ON_PAGE
 ): Promise<Starship[]> {
@@ -16,8 +16,8 @@ async function selectPage(
   const pageToFetch = Math.ceil(
     (pageNumber * itemsPerPage) / DEFAULT_ITEMS_ON_PAGE
   );
-
   const data = await getPage(pageToFetch);
+  // const { data } = useGetStarshipsByPageQuery(pageToFetch);
 
   if (Array.isArray(data)) {
     const start = ((pageNumber - 1) * itemsPerPage) % DEFAULT_ITEMS_ON_PAGE;
@@ -29,4 +29,4 @@ async function selectPage(
   return [];
 }
 
-export default selectPage;
+export default SelectPage;
