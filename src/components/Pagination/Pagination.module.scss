@@ -1,0 +1,23 @@
+.pagination {
+  display: flex;
+  gap: 10px;
+  padding-bottom: 10px;
+
+  &__button {
+    background-color: rgba(245, 245, 245, 0.09);
+    border: 3px solid #154173;
+    color: #fff87f;
+    cursor: pointer;
+    transition: 0.4s;
+    &:active {
+      transform: scale(1.05);
+    }
+    &:hover {
+      background-color: #676767;
+    }
+    &:disabled {
+      background-color: whitesmoke;
+      color: black;
+    }
+  }
+}
