@@ -14,10 +14,16 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "noImplicitAny": true,
-    "types": ["vitest-dom/extend-expect", "vitest/globals"]
+    "types": ["vitest-dom/extend-expect", "vitest/globals"],
+    "incremental": true
   },
   "include": ["vite.config.mts", ".eslintrc.cjs", "src", "jest.config.ts"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
+  "exclude": ["node_modules"]
 }

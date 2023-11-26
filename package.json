@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "next dev",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx",
     "format:fix": "prettier --write .",
@@ -15,6 +15,7 @@
     "test:cover": "npx jest --coverage"
   },
   "dependencies": {
+    "next": "^12.1.0",
     "@jest/types": "^29.6.3",
     "@reduxjs/toolkit": "^1.9.7",
     "@testing-library/react": "^14.1.0",
