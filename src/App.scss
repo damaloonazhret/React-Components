@@ -1,0 +1,18 @@
+.Nav {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+
+  li {
+    display: grid;
+    justify-items: center;
+    a {
+      color: #ad7c13;
+      transition: 0.4s ease-in-out;
+      text-decoration: none;
+      &:hover {
+        color: aliceblue;
+      }
+    }
+  }
+}

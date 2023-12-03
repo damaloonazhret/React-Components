@@ -1,0 +1,24 @@
+.App {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  & > form {
+    display: grid;
+    gap: 5px;
+    & > div {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      justify-content: space-between;
+    }
+  }
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.AppCountry {
+  grid-column: 2/3;
+}
+
+.ErrorMessage {
+  color: red;
+}
